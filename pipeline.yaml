@@ -1,0 +1,65 @@
+provisioner: gcp
+name: basic-cloud-run-regional
+version: 1
+revision: 1
+displayName: Cloud Run Deployment
+description: The bash script to run
+target: ""
+keywords:
+  - bash
+  - linux
+author: CloudCover
+meta:
+  inputArtifactType:
+    - container
+inputs:
+  properties:
+    app_env:
+      title: Application Environment
+      description: Application Related Envs
+      type: object
+      default: {}
+    customer_bucket:
+      title: Customer Bucket Name
+      description: This is a vanguard Customer  bucket name
+      type: string
+      default: latest
+    environment:
+      title: Environment Name
+      description: This is vanguard environment name
+      type: string
+      default: latest
+    project:
+      title: Project Name
+      description: This is a vanguard project name
+      type: string
+      default: latest
+    region:
+      title: Region name
+      description: region name for cluster
+      type: string
+      default: ""
+      minlength: 1
+    repository:
+      title: Container Repository
+      description: Enter Full container url without tag
+      type: string
+      default: ""
+    tag:
+      title: Container tag
+      description: Tagged container will deploy
+      type: string
+      default: latest
+  required:
+    - region
+  internal:
+    - app_env
+    - repository
+    - tag
+    - applicationName
+    - environment
+    - project
+    - customer_bucket
+    - job_type
+    - pipeline_summary_var
+template: 

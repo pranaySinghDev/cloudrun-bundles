@@ -1,0 +1,2 @@
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ['beta', 'run', 'deploy', 'dashboard', '--image', 'us-docker.pkg.dev/cloudrun/container/hello', '--region', 'us-central1', '--allow-unauthenticated', '--platform', 'managed']
